@@ -73,11 +73,11 @@ def handle_message(event):
         #         TextSendMessage(text=content)
         #         )
         
-        if event.message.text =='@油價查詢':
-            content = oil_price()
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text = content))
+    if event.message.text =='@油價查詢':
+        content = oil_price()
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text = content))
 
     @handler.add(FollowEvent)
     def handle_follow(event):
