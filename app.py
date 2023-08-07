@@ -66,13 +66,18 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token,buttons_template)
         #########################使用說明 選單 油價查詢#########################
-        if event.message.text=='@油價查詢':
-            content=oil_price(
-                line_bot_api.reply_message(
+        # if event.message.text=='@油價查詢':
+        #     content=oil_price()
+        #     line_bot_api.reply_message(
+        #         event.reply_token,
+        #         TextSendMessage(text=content)
+        #         )
+        
+        if event.message.text =='@油價查詢':
+            content = oil_price()
+            line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(text=content)
-                )
-            )
+                TextSendMessage(text = content))
 
     @handler.add(FollowEvent)
     def handle_follow(event):
@@ -84,6 +89,6 @@ def handle_message(event):
     @handler.add(UnfollowEvent)
     def handle_unfollow(event):
         print(event)
-        
+
     if __name__=='__main__':
         app.run()
