@@ -66,7 +66,7 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token,buttons_template)
         #########################使用說明 選單 油價查詢#########################
-        if event.message.text=='想知道油價':
+        if event.message.text=='油價查詢':
             content=oil_price(
                 line_bot_api.reply_message(
                 event.reply_token,
