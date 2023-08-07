@@ -35,6 +35,8 @@ def callback():
 def handle_message(event):
     # message=TextSendMessage(text=event.message.text)
     # line_bot_api.reply_message(event.reply_token,message)
+    profile=line_bot_api.get_profile(event.source.user_id)
+    uid=profile.user_id
     message_text=str(event.message.text).lower()
 
     if message_text=='@使用說明':
@@ -78,6 +80,11 @@ def handle_message(event):
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text = content))
+    
+    #########################股票區############################
+    if event.message.text=='股票查詢':
+        line_bot_api.push_message(uid,TextSendMessage('請輸入#+股票代號....'))
+
 
     @handler.add(FollowEvent)
     def handle_follow(event):
