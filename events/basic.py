@@ -14,12 +14,12 @@ def about_us_event(event):
     }
     ]
     text_message=TextSendMessage(text='''$ Master Finance $
-Hello!您好，還營您成為Master Finance的好友!
-                                 
-我是Master 財經小幫手
-這裡有股票，匯率資訊
-直接點選下方選單
-''',emojis=emoji)
+    Hello!您好，還營您成為Master Finance的好友!
+                                    
+    我是Master 財經小幫手
+    這裡有股票，匯率資訊
+    直接點選下方選單
+    ''',emojis=emoji)
     sticker_message=StickerSendMessage(
         package_id='8522',
         sticker_id='16581271'
@@ -31,10 +31,10 @@ Hello!您好，還營您成為Master Finance的好友!
 
 def push_msg(event,msg):
     try:
-        user_id=event.sourcr.user_id
+        user_id=event.source.user_id
         line_bot_api.push_message(user_id,TextSendMessage(text=msg))
     except:
-        room_id=event.sourcr.room_id
+        room_id=event.source.room_id
         line_bot_api.push_message(room_id,TextSendMessage(text=msg))
 
 def Usage(event):
