@@ -1,7 +1,7 @@
 #載入linebot 所需套件
 from line_bot_api import*
 from events.basic import *
-
+from events.oil import *
 app=Flask(__name__)
 
 
@@ -65,6 +65,13 @@ def handle_message(event):
             )
         )
         line_bot_api.reply_message(event.reply_token,buttons_template)
-    
+        #########################使用說明 選單 油價查詢#########################
+        if event.message.text=='想知道油價':
+            content=oil_price(
+                line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=content)
+                )
+            )
     if __name__=='__main__':
         app.run()
