@@ -42,7 +42,7 @@ def handle_message(event):
         Usage(event)
 
     if event.message.text=='@小幫手':
-        button_template=TemplateSendMessage(
+        buttons_template=TemplateSendMessage(
             alt_text='小幫手 template',
             template=ButtonsTemplate(
             title='選擇服務',
@@ -64,6 +64,7 @@ def handle_message(event):
             ]
             )
         )
+        line_bot_api.reply_message(event.reply_token,buttons_template)
     
     if __name__=='__main__':
         app.run()
