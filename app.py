@@ -53,15 +53,15 @@ def handle_message(event):
             actions=[
                 MessageTemplateAction(
             label='油價查詢',
-            text='油價查詢'
+            text='@油價查詢'
                 ),
                 MessageTemplateAction(
             label='匯率查詢',
-            text='匯率查詢'
+            text='@匯率查詢'
                 ),
                 MessageTemplateAction(
             label='股價查詢',
-            text='股價查詢'
+            text='@股價查詢'
                 ),
             ]
             )
