@@ -4,10 +4,10 @@ from bs4 import BeautifulSoup
 import requests
 # Authentication Database認證資料庫
 stockDB='mydb'
-dbname = 'howard-good31'
+dbname = 'test-good31'
 
 def constructor_stock(): 
-    client = MongoClient("")
+    client = MongoClient("mongodb://sln95302:19961026@ac-93swz5b-shard-00-00.zosnptn.mongodb.net:27017,ac-93swz5b-shard-00-01.zosnptn.mongodb.net:27017,ac-93swz5b-shard-00-02.zosnptn.mongodb.net:27017/?ssl=true&replicaSet=atlas-tmntzm-shard-0&authSource=admin&retryWrites=true&w=majority")
     db = client[stockDB]
     return db
 
