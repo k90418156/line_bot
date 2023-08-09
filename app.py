@@ -129,10 +129,10 @@ def handle_message(event):
     #     for i in range(len(price5)):
     #         content+='[%s]%s\n'%(date5[i].strftime('%Y-%m-%d'),price5[i])
 
-    ##股價查詢
-    if re.match("想知道股價[0-9]:", msg):
+   ##股價查詢
+    if re.match("@股價查詢", msg):
         stockNumber = msg[2:6]
-        btn_msg = stock_reply_other(msg)
+        btn_msg = stock_reply_other(stockNumber)
         line_bot_api.push_message(uid, btn_msg)
         return 0
     
@@ -148,10 +148,10 @@ def handle_message(event):
             stock_rt['info']['name'],
             stock_rt['info']['code'],
             my_time)
-        
         content += '現價: %s / 開盤: %s\n'%(
             stock_rt['realtime']['latest_trade_price'],
             stock_rt['realtime']['open'])
+        
         content += '最高: %s / 最低:%s\n'%(
             stock_rt['realtime']['high'],
             stock_rt['realtime']['low'])
