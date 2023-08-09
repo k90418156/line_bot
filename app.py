@@ -130,7 +130,7 @@ def handle_message(event):
     #         content+='[%s]%s\n'%(date5[i].strftime('%Y-%m-%d'),price5[i])
 
    ##股價查詢
-    if re.match("@股價查詢", msg):
+    if re.match("@股票查詢", msg):
         stockNumber = msg[2:6]
         btn_msg = stock_reply_other(stockNumber)
         line_bot_api.push_message(uid, btn_msg)
