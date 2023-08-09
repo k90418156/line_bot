@@ -113,7 +113,7 @@ def handle_message(event):
             my_time
         )
         content+='現價: %s / 開盤:%s\n'%(
-            stock_rt['realtime']['lateest_trade_price'],
+            stock_rt['realtime']['latest_trade_price'],
             stock_rt['realtime']['open']
         )
         content+='最高: %s / 最低:%s\n'%(
