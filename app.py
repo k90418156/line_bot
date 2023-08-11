@@ -226,7 +226,7 @@ def handle_message(event):
         line_bot_api.push_message(uid,TextSendMessage(content))
         #------------股價提醒--------------
 
-    if re.match('股價提醒',msg):
+    if re.match('股票提醒',msg):
         import schedule
         import time
         #查看當前股價
