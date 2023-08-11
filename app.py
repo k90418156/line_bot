@@ -254,6 +254,7 @@ def handle_message(event):
                     line_bot_api.push_message(userID, TextSendMessage(text=content))
         def job():
             print('HH')
+            line_bot_api.push_message(uid,TextSendMessage('來買股票!!'))
             dataList = cache_users_stock()
             # print(dataList)
             for i in range(len(dataList)):
