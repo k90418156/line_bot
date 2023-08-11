@@ -271,20 +271,17 @@ def handle_message(event):
             schedule.run_pending()
             time.sleep(1)
 
-        while True:
-            schedule.run_pending()
-            time.sleep(1)
 
-    @handler.add(FollowEvent)
-    def handle_follow(event):
-        welcome_msg='''Hello!您好，歡迎您成為Master Finance的好友'''
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=welcome_msg))
-                
-    @handler.add(UnfollowEvent)
-    def handle_unfollow(event):
-        print(event)
+@handler.add(FollowEvent)
+def handle_follow(event):
+    welcome_msg='''Hello!您好，歡迎您成為Master Finance的好友'''
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=welcome_msg))
+            
+@handler.add(UnfollowEvent)
+def handle_unfollow(event):
+    print(event)
 
-    if __name__=='__main__':
-        app.run()
+if __name__=='__main__':
+    app.run()
