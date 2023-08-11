@@ -149,7 +149,13 @@ def handle_message(event):
     # else:
     #     content=write_my_stock(uid,user_name,stockNumber,'未設定','未設定')
     #     line_bot_api.push_message(uid,TextSendMessage(content))
-    #     return 0
+        return 0
+    #查詢股票篩選條件清單
+    if re.match('股票清單',msg):
+        line_bot_api.push_message(uid,TextSendMessage('請稍等一下，股票查詢中......'))
+        content=show_stock_setting(user_name,uid)
+        line_bot_api.push_message(uid,TextSendMessage(content))
+        return 0
     
     if (emsg.startswith('#')):
         text = emsg[1:]
